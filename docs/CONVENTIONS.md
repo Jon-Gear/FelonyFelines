@@ -26,6 +26,7 @@ resources/          ← configuration assets (.tres): catalogs, definitions, rul
 scenes/             ← scene roles (*.tscn) grouped by role: menu/, levels/, ui/
 docs/
   CONVENTIONS.md    ← this file
+  TESTING.md        ← test framework and the assert-behavior convention
   adr/              ← recorded architecture decisions (ADR-xxxx-*.md)
 ```
 
@@ -139,8 +140,8 @@ lives in an `EditorPlugin`. It is never referenced at runtime.
   carries `entry_scene`, `starting_wave`, `default_catalog`, and
   `initial_state_preset`.
 - Definitions auto-generate stable IDs from the asset file name
-  (`name.trim().to_lower().replace(" ", "-")`) via the editor **normalize-IDs
-  pass** (Godot has no `OnValidate`).
+  (`IdUtils.normalize(name)` = `name.strip_edges().to_lower().replace(" ", "-")`)
+  via the editor **normalize-IDs pass** (Godot has no `OnValidate`).
 - All ID comparisons are case-insensitive; service signatures use wrapped-ID types
   from Domain, never bare strings.
 
@@ -162,3 +163,6 @@ scene loads next; scenes report completion via `complete_current_step` /
   rule/workflow that orchestrates state?" → **Application**. "Does it touch a
   scene, node, physics body, UI, or third-party system?" → **Presentation /
   Infrastructure**. "Does it only help author/debug?" → **Editor**.
+- Tests live outside `src/` in `tests/`, run under GUT, and assert behavior only —
+  construct state, invoke a module, assert the result; never assert wiring. See
+  `docs/TESTING.md`.
