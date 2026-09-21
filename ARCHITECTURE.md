@@ -5,7 +5,7 @@
 > The vocabulary is intentionally generic. Where a name is written verbatim (`AppSession`, `AppState`, `FlowController`, `FeatureModule`) that is the canonical name to use. Everything else (`<Subsystem>`, `<Module>`, `<Feature>`) is a placeholder you fill in per feature. GDScript has no namespaces and no assemblies; **layer membership is encoded by folder**, and file names are `snake_case.gd` with a PascalCase `class_name`. Where the reference model said "namespace", read "folder".
 
 > This document is the *target*. The current tree predates it (see Appendix A for how today's files map onto the layers and where `Global.gd` dissolves).
-
+ 
 ---
 
 ## 1. The five layers (the core of the model)
