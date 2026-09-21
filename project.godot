@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/components/bullet-related/BulletSpawner.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://src/entities/base_templates/base_entity/base_entity.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "BulletEmitterSingle": "",
 "BulletEmitterSpread": "",
 "BulletSpawner": "",
+"Entity": "",
 "State": "",
 "StateMachine": ""
 }
