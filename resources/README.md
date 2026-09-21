@@ -29,7 +29,8 @@ Naming conventions:
 
 - `.tres` assets are grouped by subsystem and named `kebab-case.tres`.
 - Generated string IDs fall back to the asset file name
-  (`name.trim().to_lower().replace(" ", "-")`) via the editor normalize-IDs pass.
+  (`IdUtils.normalize(name)` = `name.strip_edges().to_lower().replace(" ", "-")`)
+  via the editor normalize-IDs pass.
 - All ID comparisons are case-insensitive; service signatures use wrapped-ID value
   types from Domain, never bare strings.
 

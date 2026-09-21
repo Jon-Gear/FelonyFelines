@@ -34,10 +34,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/components/bullet-related/BulletSpawner.gd"
 }, {
+"base": "Reference",
+"class": "DropWeights",
+"language": "GDScript",
+"path": "res://src/domain/drop_weights.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Entity",
 "language": "GDScript",
 "path": "res://src/entities/base_templates/base_entity/base_entity.gd"
+}, {
+"base": "Reference",
+"class": "IdUtils",
+"language": "GDScript",
+"path": "res://src/domain/id_utils.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -55,7 +65,9 @@ _global_script_class_icons={
 "BulletEmitterSingle": "",
 "BulletEmitterSpread": "",
 "BulletSpawner": "",
+"DropWeights": "",
 "Entity": "",
+"IdUtils": "",
 "State": "",
 "StateMachine": ""
 }
@@ -91,7 +103,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/mixing-desk/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/mixing-desk/plugin.cfg", "res://addons/gut/plugin.cfg" )
 
 [gdnative]
 

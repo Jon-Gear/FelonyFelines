@@ -86,24 +86,7 @@ func get_all_enemies():
 	return enemies_result
 
 func normalize_item_drop_weights():
-	var sum = 0
-	# force multiplier to be a float
-	var multiplier = 1.0
-	for key in ITEM_DROP_WEIGHTS:
-		sum += round(ITEM_DROP_WEIGHTS[key])
-	# if our sum is greater than 100 then we want then find the
-	# multiplier that will bring it close to 100
-	if sum > 100:
-		multiplier = 100/sum
-
-	for key in ITEM_DROP_WEIGHTS:
-		# First do the multiplier
-		ITEM_DROP_WEIGHTS[key] = multiplier * float(ITEM_DROP_WEIGHTS[key])
-		# if rounding it will make it zero (i.e. it was .4) then make it 1
-		if ITEM_DROP_WEIGHTS[key] > 0 && round(ITEM_DROP_WEIGHTS[key]) == 0:
-			ITEM_DROP_WEIGHTS[key] = 1
-		else:
-			ITEM_DROP_WEIGHTS[key] = round(ITEM_DROP_WEIGHTS[key])
+	ITEM_DROP_WEIGHTS = DropWeights.normalize(ITEM_DROP_WEIGHTS)
 
 
 func get_closest_enemy(position: Vector2):
